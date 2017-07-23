@@ -5,8 +5,8 @@ require "bundler/setup"
 require "jekyll"
 
 # Change your GitHub reponame
-GITHUB_REPONAME    = "nandomoreirame/lora"
-GITHUB_REPO_BRANCH = "gh-pages"
+GITHUB_REPONAME    = "siwenyu/site"
+GITHUB_REPO_BRANCH = "master"
 
 SOURCE = "source/"
 DEST   = "_site"
