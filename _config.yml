@@ -28,8 +28,8 @@ defaults:
 paginate: 20
 
 #### Site
-title : Jekyll Jacman
-tagline: A fresh looking and responsive theme for Jekyll
+title : sisi
+tagline: It always takes longer than you expect <br>so the best way is Always be ready。
 assets: /assets
 url:
 baseurl:
