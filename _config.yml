@@ -31,8 +31,10 @@ paginate: 20
 title : sisi
 tagline: It always takes longer than you expect <br>so the best way is Always be ready。
 assets: /assets
+imgurl: https://raw.githubusercontent.com/siwenyu/site/master/img/
 url:
 baseurl:
+
 
 #### Language
 language: zh-CN    ## blog site languages: en, zh-CN, zh-TW, de
