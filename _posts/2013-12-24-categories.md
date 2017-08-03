@@ -1,10 +1,9 @@
 ---
-title: Categories
-date: 2013-12-24 23:30:09
-categories:
-- Foo
-- Bar
-- Baz
+title: 工作理论（持续更新~~~）
+date: 2017-07-29 23:30:09
+categories: [theory]
+
+
 ---
 
-This post contains 3 categories. Make sure your theme can display all of the categories.
+
