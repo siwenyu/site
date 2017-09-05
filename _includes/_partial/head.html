@@ -1,4 +1,5 @@
 <!DOCTYPE HTML>
+
 <html {% if site.language %}lang="{{ site.language }}"{% endif %}>
 <head>
   <meta charset="UTF-8">
@@ -13,7 +14,7 @@
     {% assign title = lang.tags %}
     {% endif %}
     <title>{% if title %}{{ title }} | {% endif %}{{ site.title }}</title>
-
+    <script src="{{ site.baseurl }}{{ site.assets }}/js/jquery-2.0.3.min.js"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     {% if site.author.name %}
