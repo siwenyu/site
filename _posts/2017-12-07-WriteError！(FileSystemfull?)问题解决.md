@@ -54,7 +54,11 @@ categories: [linux]
 * 使用lsof命令查看哪些进程
 
 ```
-lost不是有可能不是linux内置命令，需要手动安装。yum install lsof  
+lost不是有可能不是linux内置命令，需要手动安装。
+yum install lsof  
+
+安装之后如果还是没有命令，使用绝对路径使用：
+/usr/sbin/lsof
 
 ```
 * 查看所有进程
