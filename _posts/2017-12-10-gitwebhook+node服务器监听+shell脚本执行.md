@@ -80,7 +80,7 @@ http.createServer(function(request, response) {
     response.end();
 }).listen(8010);
 
-console.log('监听update:' + 'http://cp01-ala-fe-4.epc.baidu.com:8010/');
+console.log('监听update:' + 'http://xxxx.com:8010/');
 
 ```
 
