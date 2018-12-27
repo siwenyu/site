@@ -2,8 +2,62 @@
 title: Emoji Test
 tags:
 ---
+前几天资源方提交的资源中有大量的笑脸尴尬等图片，我差点慌了，这玩意还能存在数据库中并拿过来使用？？？解析客户端如何使用emoji（爱墨迹）表情文本。
 
-This is an emoji test. :smile:
+## 什么是emoji
+1. Emoji又称绘文字， 是可以插入文字的图形符号。你可以把它理解为普通的逗号或者句号。
+2. 发展历史：日本人发明，后苹果ios5系统开始使用，普及全球。现在牛津词典收入，各种平台收入，发展欣欣向荣，2015年正式标准发布。
+3. 规模：<a href="http://www.unicode.org/emoji/charts/full-emoji-list.html">Full Emoji List</a> 或者 <a href="http://getemoji.com/">http://getemoji.com/</a>
+4. 存在的意义：研究表明：人与人交流是70%是通过肢体语言表达，23%是通过语调传达，只有7%是通过语句传达。所以互联网的趋势中发展emoji是必要的。
+5. 师姐emoji日：日历的 Emoji 📅（U+1F4C5） 在苹果系统之中，一律是7月17日。这是苹果公司发布 iCal 的日子。有人戏称这个日子是"世界 Emoji 日"。
 
-:bowtie::smile::laughing::blush::smiley::relaxed::smirk:
-:heart_eyes::kissing_heart::kissing_closed_eyes::flushed::relieved::satisfied::grin:
+## 渲染实现
+
+最初的emoji实现是特定的组合符号对应一张内置的图片，后来普及之后，Unicode规定了码点和含义，比如U+1F600标识一张笑脸；但是具体这个笑脸长什么样子，由各个系统自己实现。😄
+
+case：
+    1. 由于各个系统都是自己实现的展示效果，所以可能在不同的系统上，同一个表情展现不一样。但是标识他们的Unicode编码是一样的。
+    2. 如果A上传了一个表情文本，B请求访问的时候获取到Unicode编码，但是B系统没有实现这个表情，则会显示成一个没有内容的方框。
+
+## 使用方式
+
+emoji是一种文字符号，但是大多数表情是无法直接键盘输入的。
+
+1. 对已经存在的复制粘贴，比如官网<a href="http://getemoji.com/">http://getemoji.com/</a>，或者在哪里看到的。随粘随用。
+2. 获取对应的码点输入emoji，
+    1. 比如笑脸&#128512;U+1F600，对应的html实体字符是&amp;#128512;（十进制）或&amp;#x1F600;（十六进制）;
+    2. 码点查询：https://emojipedia.org/facebook/http://emojipedia.org/facebook/
+    3. 查到的码点可以使用：'U+1F648'.replace('U+', '&#x');显示
+
+3. node-emoji可以使用js
+
+获取方法：<a href="https://www.npmjs.com/package/node-emoji">node-emoji</a>
+
+```
+    安装
+    npm install --save node-emoji
+
+    引入：import emoji from  'node-emoji'   或者：var emoji = require('node-emoji')
+
+    这里面总共有多少个表情符号：
+    Object.getOwnPropertyNames(emoji.emoji).length
+
+    获取图标：
+    emoji.get('coffee')
+
+    生成随机图标：emoji.random()
+
+
+```
+4. 有人将所有的表情文本以及对应的svg图标写进了一张css表，可以直接饮用。（不建议，更新不及时，太大了）
+
+```
+    <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+    <i class="em em-baby"></i>
+```
+
+5. 组合使用
+    Unicode 除了使用单个码点表示 Emoji，还允许多个码点组合表示一个 Emoji。
+    其中的一种方式是"零宽度连接符"（ZERO WIDTH JOINER，缩写 ZWJ）U+200D。举例来说，下面是三个 Emoji 的码点。
+
+    三个码点使用U+200D连接起来，U+1F468 U+200D U+1F469 U+200D U+1F467，就会显示为一个 Emoji 👨‍👩‍👧，表示他们组成的家庭。如果用户的系统不支持这种方法，就还是显示为三个独立的 Emoji 👨👩👧。
