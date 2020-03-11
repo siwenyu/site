@@ -4,7 +4,7 @@ date: 2019-07-02 00:31:31
 tags: [api,js]
 categories: [tool]
 ---
-# localStorage实现缓存方案
+业务需要一个场景一个本地的localstorage管理，记录下。
 
 ## 源码
 ```
